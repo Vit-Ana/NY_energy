@@ -5,7 +5,9 @@
 ### Code
 ```cal_sub.py```: calculating the number of substations for each kV bin\
 **Number of Substations by Highest kV Rating in California**
-![california_substations_by_kv]('california_substations_by_kv.png')
-```CA_energy_per_pop.py```: plotting substations per population size 
+![california_substations_by_kv](california_substations_by_kv.png)
+
+
+```CA_energy_per_pop.py```: plotting substations per population size\
 **Estimated People per Substation by zip code**
-![Substations per population]('est_pop_per_sub.png')
+![Substations per population](est_pop_per_sub.png)
