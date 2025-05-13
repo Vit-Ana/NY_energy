@@ -24,6 +24,8 @@ b.	Preparing geographical information files
 2.	```merged coord + feeders.py```: merging the data from National Grid website and NY state government website and saving into sub_shape.csv
 3.	```sub_shape.py```: Saving as a geopackage with substations as a layer containing coordinates of substations (sub_shape.gpkg)
  
-** The New York State Map with Substations
-color-coded by number of feeders (created with QGIS) **
+\
+**The New York State Map with Substations\
+color-coded by the number of feeders\
+(created with QGIS)**
 ![New York State Map with Substations]( gov_file_substations.png)
