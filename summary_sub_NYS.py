@@ -8,7 +8,11 @@ Created on Wed Mar 12 16:31:03 2025
 
 
 import pandas as pd
+import quicklog
 
+ql = quicklog.logger('summary_sub_NYS.log')
+
+ql.log('Reading input files',{'OH.csv','UG.csv','column_names.csv'},json=True)
 
 OH = pd.read_csv('OH.csv', dtype=str, sep=';')
 UG = pd.read_csv('UG.csv', dtype=str, sep=';')
@@ -25,21 +29,24 @@ OH = OH.rename(columns = OH_names)
 UG_names = names.set_index('UG')['STD'].to_dict() 
 UG = UG.rename(columns = UG_names)
 UG = UG.drop(columns=['x', 'y'])
-OH.to_csv('OH_std.csv', index=False)
-UG.to_csv('UG_std.csv', index=False)
 
+# Rewritten later: defer until then
+#OH.to_csv('OH_std.csv', index=False)
+#UG.to_csv('UG_std.csv', index=False)
 
 #%%
 #checking the number of substations
 OH_total_sub = OH.groupby("substation").size().reset_index(name="count")
 #OH_grouped = OH.groupby("substation", as_index=False)[["summerrating", "peakampscurr", "pctratingcurr", "peakampslast", "pctratinglast"]].sum()
-print("Number of substations: ", OH["substation"].nunique())
+
+ql.log("Number of OH substations", OH["substation"].nunique())
 
 
 #%%
 #checking the number of substations
 UG_total_sub = UG.groupby("substation").size().reset_index(name="count")
-print("Number of substations: ", UG["substation"].nunique())    
+
+ql.log("Number of UG substations", UG["substation"].nunique())    
 
 
 #%%
@@ -78,13 +85,15 @@ UG_summary = pd.DataFrame({'feeders': UG_feeders, 'total_amps': UG_total_amps})
 OH_summary.to_csv('OH_summary.csv')
 UG_summary.to_csv('UG_summary.csv')
 
-OH_grouped = OH.groupby('amp_rating_bin').size().reset_index(name='count')
-UG_grouped = UG.groupby('amp_rating_bin').size().reset_index(name='count')
+ql.log('Wrote summary files',{'OH_summary.csv','UG_summary.csv'},json=True)
 
-
-kV_OH_grouped = OH.groupby('voltage').size().reset_index(name='count')
-kV_UG_grouped = UG.groupby('voltage').size().reset_index(name='count')
-
+#  The following are not used or saved: comment out for now
+#
+# OH_grouped = OH.groupby('amp_rating_bin').size().reset_index(name='count')
+# UG_grouped = UG.groupby('amp_rating_bin').size().reset_index(name='count')
+#
+# kV_OH_grouped = OH.groupby('voltage').size().reset_index(name='count')
+# kV_UG_grouped = UG.groupby('voltage').size().reset_index(name='count')
 
 
 #%%
@@ -92,6 +101,7 @@ kV_UG_grouped = UG.groupby('voltage').size().reset_index(name='count')
 OH.to_csv('OH_std.csv', index=False)
 UG.to_csv('UG_std.csv', index=False)
 
+ql.log('Wrote standardized output files',{'OH_std.csv','UG_std.csv'},json=True)
 
 
 
