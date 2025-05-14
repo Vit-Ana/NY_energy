@@ -21,7 +21,7 @@ b.	Preparing geographical information files
 
 ## Working with the substation file obtained from NY state government website
 1.	```NYS_sub.py``` converting nys-substations.xlsx to nys_feeders.csv
-2.	```merged coord + feeders.py```: merging the data from National Grid website and NY state government website and saving into sub_shape.csv
+2.	```merged_coord_feeders.py```: merging the data from National Grid website and NY state government website and saving into sub_shape.csv
 3.	```sub_shape.py```: Saving as a geopackage with substations as a layer containing coordinates of substations (sub_shape.gpkg)
  
 \
