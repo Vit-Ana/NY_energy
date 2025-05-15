@@ -15,7 +15,7 @@ def download_census_population(place_code: str, state_code: str, output_file: st
     saves the result to a CSV file.
 
     Args:
-        place_code (str): The place code for the location (e.g., "73000" for Syracuse).
+        place_code (str): The place code for the location ("73000" for Syracuse, 11000 for Buffalo).
         state_code (str): The FIPS state code (e.g., "36" for New York).
         output_file (str): Path to save the resulting CSV.
     """
@@ -50,5 +50,5 @@ def download_census_population(place_code: str, state_code: str, output_file: st
     print(f"Saved population data to {output_file}")
 
 # --- usage ---
-download_census_population(place_code="73000", state_code="36", output_file="syr_pop.csv")
-download_census_population(place_code="11000", state_code="36", output_file="buff_pop.csv")
+download_census_population(place_code="73000", state_code="36", output_file="syracuse_buffalo/syr_pop.csv")
+download_census_population(place_code="11000", state_code="36", output_file="syracuse_buffalo/buff_pop.csv")

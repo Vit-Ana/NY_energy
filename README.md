@@ -10,8 +10,8 @@ a.	Data Cleaning
 3.	```summary_sub_NYS.py```: saving the underground (UG) and overhead (OH) feeders data files with the standardized names. The files also provides summary for the feeders (number of feeders per substation, total amps, amp bins).
 
 b.	Preparing geographical information files
-1.	```geo_feeders.py```: creating geo files with all substations ("grid_shape.gpkg") and a file with feeders carrying 10+ MW of power ("MW10_shape.gpkg"). Note: must run NYS_sub.py first.
-2.	```energy_per_pop.py```: creating maps and plots with information about number of people served. Note: needs nys_zip.gpkg
+1.	```geo_feeders.py```: creating geo files with all substations ("grid_shape.gpkg") and a file with feeders carrying 10+ MW of power ("MW10_shape.gpkg").
+2.	```energy_per_pop.py```: creating maps and plots with information about number of people served
 3.	```city_maps.py```: creating maps with substations in and within 2 miles around Syracuse and Buffalo sub_syracuse_map.png and sub_buffalo_map.png
 4.	```pop_per_sub.py```: computing population per substation and kW pep population in Syracuse and Buffalo
 
@@ -21,7 +21,7 @@ b.	Preparing geographical information files
 
 ## Working with the substation file obtained from NY state government website
 1.	```NYS_sub.py``` converting nys-substations.xlsx to nys_feeders.csv
-2.	```merged_coord_feeders.py```: merging the data from National Grid website and NY state government website and saving into sub_shape.csv
+2.	```merged coord + feeders.py```: merging the data from National Grid website and NY state government website and saving into sub_shape.csv
 3.	```sub_shape.py```: Saving as a geopackage with substations as a layer containing coordinates of substations (sub_shape.gpkg)
  
 \

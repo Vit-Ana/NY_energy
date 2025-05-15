@@ -1,4 +1,4 @@
-feeder,substation,voltage,summerrating,peakampscurr,pctratingcurr,peakampslast,pctratinglast,loadcurvehist,loadcurvefor,amp_rating_bin
+feeder,substation,voltage,summerrating,peakampscurr,pctratingcurr,peakampslast,pctratinglast,loadcurvehist,loadcurveforecast,amp_rating_bin
 36_01_12161,121 CLINTON ST,"4,8",241,104,43.15,104,43.15,https://systemdataportal.nationalgrid.com/NY/documents/historicalloadcurve//36_01_12161.xlsx,https://systemdataportal.nationalgrid.com/NY/documents/forecastloadcurve/36_01_12161.csv,201-300
 36_01_12261,122 SOMMER ST,"4,16",266,"99,33",37.34,"98,67",37.09,https://systemdataportal.nationalgrid.com/NY/documents/historicalloadcurve//36_01_12261.xlsx,https://systemdataportal.nationalgrid.com/NY/documents/forecastloadcurve/36_01_12261.csv,201-300
 36_01_12262,122 SOMMER ST,"4,16",266,117,43.98,"115,67",43.48,https://systemdataportal.nationalgrid.com/NY/documents/historicalloadcurve//36_01_12262.xlsx,https://systemdataportal.nationalgrid.com/NY/documents/forecastloadcurve/36_01_12262.csv,201-300

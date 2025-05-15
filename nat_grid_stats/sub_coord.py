@@ -7,11 +7,11 @@ Created on Wed Mar 26 06:48:04 2025
 """
 
 import pandas as pd
-
+output = 'nat_grid_stats/output/coordinates.csv'
 
 #%%
 #reading the substations file
-coord = pd.read_csv('Substations.csv', dtype=str, index_col=0, sep=';')
+coord = pd.read_csv('nat_grid_stats/input_data/Substations.csv', dtype=str, index_col=0, sep=';')
 print(coord.dtypes)
 print(coord['y'].unique())
 print(coord['x'].unique())
@@ -38,7 +38,7 @@ print(coord.dtypes)
 
 #%%
 
-coord.to_csv('coordinates.csv')
+coord.to_csv(output)
 
 
 

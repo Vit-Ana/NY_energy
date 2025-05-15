@@ -9,8 +9,9 @@ Created on Wed Mar 26 17:05:56 2025
 import pandas as pd
 # uploading the coordinates file from the National Grid website and a file with substations
 # and feeders + substations files from NY state government website
-df1 = pd.read_csv('coordinates.csv')
-df2 = pd.read_csv('nys_feeders.csv')
+df1 = pd.read_csv('nat_grid_stats/coordinates.csv')
+df2 = pd.read_csv('data_from_state_gov/output/nys_feeders.csv')
+
 df2['substation'] = df2['substation'].str.replace("LIVINGSTON COUNTY CORRECTIO", "LIVINGSTON COUNTY CORRECTIONAL", case=False).str.strip()                                                                                                                      
 print(df1['substation'].unique())
 print(df2['substation'].unique())
@@ -109,8 +110,7 @@ print(f"All unique different values: {all_different2}")
 
 #saving to a csv file
 different_series2 = pd.Series(all_different2)
-different_series2.to_csv('sub_different.csv')
-#
+different_series2.to_csv('data_from_state_gov/output/sub_different.csv')
 
 
 
@@ -119,32 +119,9 @@ different_series2.to_csv('sub_different.csv')
 merged = df1.merge(df2, on='substation', how='left', indicator=True) 
 print(merged['_merge'].value_counts())
 sub_shape = merged.drop(columns=['_merge'])
-sub_shape.to_csv('sub_shape.csv')
-#df.sort_values(by=['cleaned_coord', 'cleaned_feeders'],ascending=False)
+sub_shape.to_csv('data_from_state_gov/output/sub_shape.csv')
 
 
-
-
-#%%
-#creating new column names
-
-new_column_names = {
-    'feeder': 'feeder',
-    'substation': 'substation',
-    'operating voltage (kv)': 'voltage',
-    'summer rating (amps)': 'summerrating',
-    'peak_amps_current_year': 'peakampscurr',
-    'pct_rating_current_year': 'pctratingcurr',
-    'peak_amps_last_year': 'peakampslast',
-    'pct_rating_last_year': 'pctratinglast',
-    'historical_load_curve_extract': 'loadcurvehist',
-    'forecast_load_curve_extract': 'loadcurvefor'
-}
-
-#T['STD'] = T['STD'].replace(new_column_names)
-
-
-#T.to_csv('column_names.csv')
 
 
 

@@ -99,7 +99,7 @@ substations.plot(ax=ax, color='red', markersize=2)
 ax.axis('off')
 plt.title("Estimated People per Substation by zip code")
 plt.tight_layout()
-
+fig.savefig('pop_per_zip.png')
 
 #%%
 #creating a scatter plot with rated MW vs people served
@@ -113,7 +113,7 @@ plt.ylabel('People Served')
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
+fig.savefig('pop_per_zip.png')
 
 
 

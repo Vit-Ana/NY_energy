@@ -1,0 +1,11 @@
+,UG,OH,STD
+0,Feeder,MASTER_CDF,feeder
+1,Substation,SUBSTATION_NAME,substation
+2,Operating Voltage (kV),OPERATING_VOLTAGE,voltage
+3,Summer Rating (Amps),FEEDER_SN_RATING_AMPS,summerrating
+4,PEAK_AMPS_CURRENT_YEAR,PEAK_AMPS_CURRENT_YEAR,peakampscurr
+5,PCT_RATING_CURRENT_YEAR,PCT_RATING_CURRENT_YEAR,pctratingcurr
+6,PEAK_AMPS_LAST_YEAR,PEAK_AMPS_LAST_YEAR,peakampslast
+7,PCT_RATING_LAST_YEAR,PCT_RATING_LAST_YEAR,pctratinglast
+8,Historical_Load_Curve_Extract,Historical_Load_Curve_Extract,loadcurvehist
+9,Forecast_Load_Curve_Extract,Forecast_Load_Curve_Extract,loadcurvefor

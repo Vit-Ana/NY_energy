@@ -1,4 +1,4 @@
-feeder,substation,voltage,summerrating,peakampscurr,pctratingcurr,peakampslast,pctratinglast,loadcurvehist,loadcurvefor,amp_rating_bin
+feeder,substation,voltage,summerrating,peakampscurr,pctratingcurr,peakampslast,pctratinglast,loadcurvehist,loadcurveforecast,amp_rating_bin
 36_01_16261,162 STATION 162,"4,16",266,50,18.8,50,18.8,https://systemdataportal.nationalgrid.com/NY/documents/historicalloadcurve//36_01_16261.xlsx,https://systemdataportal.nationalgrid.com/NY/documents/forecastloadcurve/36_01_16261.csv,201-300
 36_01_16262,162 STATION 162,"4,16",266,50,18.8,50,18.8,https://systemdataportal.nationalgrid.com/NY/documents/historicalloadcurve//36_01_16262.xlsx,https://systemdataportal.nationalgrid.com/NY/documents/forecastloadcurve/36_01_16262.csv,201-300
 36_01_16263,162 STATION 162,"4,16",266,50,18.8,50,18.8,https://systemdataportal.nationalgrid.com/NY/documents/historicalloadcurve//36_01_16263.xlsx,https://systemdataportal.nationalgrid.com/NY/documents/forecastloadcurve/36_01_16263.csv,201-300

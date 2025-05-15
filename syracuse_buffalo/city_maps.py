@@ -9,17 +9,17 @@ Created on Tue Apr 29 08:53:59 2025
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
-def analyze_city_substations(city_name, cities_fp, substations_fp, buffer_miles=2, output_prefix="output"):
+def analyze_city_substations(city_name, cities_fp, substations_fp, buffer_miles=2):
     """
-    Analyze and plot substations within a buffer around a city.
+    Analyzing and plotting substations within a buffer around a city.
 
     Parameters:
         city_name (str): Name of the city (e.g., 'Syracuse', 'Buffalo').
         cities_fp (str): File path to the city shapefile.
         substations_fp (str): File path to the substations shapefile (GPKG).
         buffer_miles (float): Radius around the city to search, in miles.
-        output_prefix (str): Prefix for output CSV and plot files.
     """
 
     #converting miles to meters for projected CRS (EPSG:3857)
@@ -46,7 +46,7 @@ def analyze_city_substations(city_name, cities_fp, substations_fp, buffer_miles=
     substations_in_buffer = gpd.sjoin(substations, buffer_gdf, how='inner', predicate='intersects')
 
     #saving as csv-files
-    csv_path = f"{output_prefix}_{city_name.lower()}_substations.csv"
+    csv_path = f"/Users/vitana/Documents/NY energy resilience/NY_energy/syracuse_buffalo/output/{city_name.lower()}_substations.csv"
     substations_in_buffer.drop(columns='geometry').to_csv(csv_path, index=False)
     print(f"Saved substations CSV for {city_name}: {csv_path}")
 
@@ -59,7 +59,7 @@ def analyze_city_substations(city_name, cities_fp, substations_fp, buffer_miles=
     ax.legend()
     ax.set_axis_off()
     plt.tight_layout()
-    plot_path = f"{output_prefix}_{city_name.lower()}_map.png"
+    plot_path = f"/Users/vitana/Documents/NY energy resilience/NY_energy/syracuse_buffalo/output/{city_name.lower()}_map.png"
     fig.savefig(plot_path, dpi=300)
     plt.show()
     print(f"Saved plot for {city_name}: {plot_path}")
@@ -67,12 +67,11 @@ def analyze_city_substations(city_name, cities_fp, substations_fp, buffer_miles=
 #%%
 # --- Usage ---
 #calling the function for Syracuse and Buffalo
-cities_fp = 'tl_2024_36_place.shp'
-substations_fp = 'sub_shape.gpkg'
+cities_fp = '/Users/vitana/Documents/NY energy resilience/NY_energy/syracuse_buffalo/input/tl_2024_36_place.zip'
+substations_fp = '/Users/vitana/Documents/NY energy resilience/NY_energy/syracuse_buffalo/input/sub_shape.gpkg'
 
-analyze_city_substations('Syracuse', cities_fp, substations_fp, output_prefix='sub')
-analyze_city_substations('Buffalo', cities_fp, substations_fp, output_prefix='sub')
-
+analyze_city_substations('Syracuse', cities_fp, substations_fp)
+analyze_city_substations('Buffalo', cities_fp, substations_fp)
 
 
 

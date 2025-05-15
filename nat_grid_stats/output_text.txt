@@ -1,0 +1,10 @@
+Number of overhead substations:  224
+Number of underground substations:  28
+Number of OH feeders in each bin: 
+   amp_rating_bin  count
+0          0-100      2
+1        101-200      5
+2        201-300    380
+3        301-400    378
+4        401-500    173
+5           500+     62

@@ -14,8 +14,8 @@ out_2 = "MW10_shape.gpkg"
 
 
 import pandas as pd
-OH = pd.read_csv('OH_std.csv')
-UG = pd.read_csv('UG_std.csv')
+OH = pd.read_csv('nat_grid_stats/output/OH_std.csv')
+UG = pd.read_csv('nat_grid_stats/output/UG_std.csv')
 
 #%%
 # --- data cleaning ---
@@ -68,7 +68,7 @@ grouped_feeders = grouped_feeders.replace({
     'SPRINGFIELD RD.': 'SPRINGFIELD',
     'YORK CTR': 'YORK CENTER SUBSTATION'
 })
-
+grouped_feeders.to_csv('/Users/vitana/Documents/NY energy resilience/NY_energy/nat_grid_stats/output/total_rated_MW.csv')
 
 #%%
 #reading the csv file with the substation coordinates

@@ -8,16 +8,17 @@ Created on Wed Mar 12 16:31:03 2025
 
 
 import pandas as pd
+output = 'nat_grid_stats/output/std_column_names.csv'
 
-OH = pd.read_csv('OH.csv', dtype=str, sep=';')
-UG = pd.read_csv('UG.csv', dtype=str, sep=';')
+OH = pd.read_csv("nat_grid_stats/input_data/OH.csv", dtype=str, sep=';')
+UG = pd.read_csv('nat_grid_stats/input_data/UG.csv', dtype=str, sep=';')
 UG = UG.drop(columns=['x', 'y'])
 
 #%%
 #creating dataframe wirh column names
 T = pd.DataFrame()
-T['OH'] = OH.columns
 T['UG'] = UG.columns
+T['OH'] = OH.columns
 T['STD'] = T['UG'].str.lower()
 
 
@@ -34,10 +35,10 @@ new_column_names = {
     'peak_amps_last_year': 'peakampslast',
     'pct_rating_last_year': 'pctratinglast',
     'historical_load_curve_extract': 'loadcurvehist',
-    'forecast_load_curve_extract': 'loadcurvefor'
+    'forecast_load_curve_extract': 'loadcurveforecast'
 }
 
 T['STD'] = T['STD'].replace(new_column_names)
 
 
-T.to_csv('column_names.csv')
+T.to_csv(output)
