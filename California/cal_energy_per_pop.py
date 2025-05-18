@@ -15,14 +15,14 @@ import os
 
 plt.rcParams['figure.dpi'] = 300
 
-out_file = 'cal_substation_output.gpkg'
+out_file = 'output/cal_substation_output.gpkg'
 
 wgs83 = 4269
 utm18n = 26918
 
-ca_map = gpd.read_file('ca_zip.gpkg').to_crs(utm18n)
-substations = gpd.read_file('ca_sub.gpkg').to_crs(utm18n)
-pop = pd.read_csv('CA_pop.csv')
+ca_map = gpd.read_file('input/zips_ca.gpkg').to_crs(utm18n)
+substations = gpd.read_file('input/ca_sub.gpkg').to_crs(utm18n)
+pop = pd.read_csv('input/california_population.csv')
 
 #merging zips and population
 ca_map['zip'] = ca_map['ZCTA5CE20']
@@ -83,6 +83,7 @@ sub_in_zip = sub_in_zip.drop_duplicates(subset='Substation_ID', keep='first')
 # -- people served calculation --
 sub_in_zip['people_served'] = sub_in_zip['pop'] / sub_in_zip['substations_in_zip']
 
+
 #%%
 #merging results back to substations
 substations = substations.merge(sub_in_zip[['sub_id', 'zip', 'people_served']], on='sub_id', how='left')
@@ -100,4 +101,62 @@ substations.plot(ax=ax, color='red', markersize=2)
 ax.axis('off')
 plt.title("Estimated People per Substation by zip code")
 plt.tight_layout()
-fig.savefig('est_pop_per_sub.png')
+fig.savefig('output/est_pop_per_sub.png')
+
+
+
+#%%
+#creating a heat map of people per substation by ZIP
+fig, ax = plt.subplots()
+zip_with_subs.plot(column='people_per_substation', ax=ax, legend=True, cmap='Blues')
+substations.plot(ax=ax, color='red', markersize=2)
+ax.axis('off')
+plt.title("Estimated People per Substation by zip code")
+plt.tight_layout()
+fig.savefig('output/pop_per_zip_heat.png')
+
+
+
+#%%
+# creating a scatter plot population vs. number of substations per ZIP code
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.scatter(
+    zip_with_subs['pop'],
+    zip_with_subs['substations_in_zip'],
+    color='blue',
+    alpha=0.6,
+    edgecolor='k'
+)
+ax.set_xlabel('Population per ZIP code')
+ax.set_ylabel('Number of Substations')
+ax.set_title('Population vs. Number of Substations per ZIP code')
+ax.grid(True)
+plt.tight_layout()
+plt.savefig('output/sub_per_pop_scatter.png')
+plt.show()
+
+
+#%%
+# creating a scatter plot population vs. number of substations per ZIP code with 
+# at least one substation
+
+with_subs = zip_with_subs[zip_with_subs['substations_in_zip'] > 0]
+plt.figure(figsize=(8, 6))
+plt.scatter(
+    with_subs['pop'], 
+    with_subs['substations_in_zip'], 
+    alpha=0.7, 
+    color='dodgerblue',
+    edgecolors='k'
+)
+plt.xlabel('Population')
+plt.ylabel('Number of Substations')
+plt.title('Substations vs. Population by ZIP Code')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
+
+

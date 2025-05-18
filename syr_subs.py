@@ -34,7 +34,7 @@ syracuse_buffered = syracuse.buffer(buffer_distance)
 
 #%%
 # loading substations layer from your GPKG
-substations = gpd.read_file('sub_shape.gpkg')
+substations = gpd.read_file('grid_shape.gpkg')
 # Make sure CRS matches
 substations = substations.to_crs(syracuse.crs)
 
