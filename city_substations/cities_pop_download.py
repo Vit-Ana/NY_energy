@@ -50,5 +50,5 @@ def download_census_population(place_code: str, state_code: str, output_file: st
     print(f"Saved population data to {output_file}")
 
 # --- usage ---
-download_census_population(place_code="73000", state_code="36", output_file="syracuse_buffalo/syr_pop.csv")
-download_census_population(place_code="11000", state_code="36", output_file="syracuse_buffalo/buff_pop.csv")
+download_census_population(place_code="73000", state_code="36", output_file="output/syr_pop.csv")
+download_census_population(place_code="11000", state_code="36", output_file="output/buff_pop.csv")
