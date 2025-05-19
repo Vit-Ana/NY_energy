@@ -130,7 +130,7 @@ ax.scatter(
 )
 ax.set_xlabel('Population per ZIP code')
 ax.set_ylabel('Number of Substations')
-ax.set_title('Population vs. Number of Substations per ZIP code (# subs > 0)')
+ax.set_title('Population vs. Number of Substations per ZIP code')
 ax.grid(True)
 fig.tight_layout()
 fig.savefig('output/sub_per_pop_scatter.png')
