@@ -93,16 +93,6 @@ substations = substations.merge(sub_in_zip[['sub_id', 'zip', 'people_served']], 
 zip_with_subs.to_file(out_file, layer='zip_with_population_per_substation')
 substations.to_file(out_file, layer='substations_with_people_served')
 
-#%%
-#plotting
-fig, ax = plt.subplots()
-zip_with_subs.plot(column='people_per_substation', ax=ax, legend=True, cmap='Blues')
-substations.plot(ax=ax, color='red', markersize=2)
-ax.axis('off')
-plt.title("Estimated People per Substation by zip code")
-plt.tight_layout()
-fig.savefig('output/est_pop_per_sub.png')
-
 
 
 #%%

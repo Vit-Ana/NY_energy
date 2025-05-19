@@ -1,0 +1,86 @@
+
+Loading CSVs:
+coordinates.csv and nys_feeders.csv
+
+Unique substation names in df1:
+<class 'pandas.core.series.Series'>
+RangeIndex: 518 entries, 0 to 517
+Series name: None
+Non-Null Count  Dtype 
+--------------  ----- 
+518 non-null    object
+dtypes: object(1)
+memory usage: 4.2+ KB
+
+
+Unique substation names in df2:
+<class 'pandas.core.series.Series'>
+RangeIndex: 552 entries, 0 to 551
+Series name: None
+Non-Null Count  Dtype 
+--------------  ----- 
+552 non-null    object
+dtypes: object(1)
+memory usage: 4.4+ KB
+
+
+Initial exact matches count:
+425
+
+Initial unique differences:
+<class 'pandas.core.series.Series'>
+RangeIndex: 186 entries, 0 to 185
+Series name: None
+Non-Null Count  Dtype 
+--------------  ----- 
+186 non-null    object
+dtypes: object(1)
+memory usage: 1.6+ KB
+
+
+Cleaned Coord Names:
+<class 'pandas.core.series.Series'>
+RangeIndex: 517 entries, 0 to 516
+Series name: None
+Non-Null Count  Dtype 
+--------------  ----- 
+517 non-null    object
+dtypes: object(1)
+memory usage: 4.2+ KB
+
+
+Cleaned Feeders Names:
+<class 'pandas.core.series.Series'>
+RangeIndex: 517 entries, 0 to 516
+Series name: None
+Non-Null Count  Dtype 
+--------------  ----- 
+517 non-null    object
+dtypes: object(1)
+memory usage: 4.2+ KB
+
+
+Exact matches after cleaning:
+68
+
+Differences after cleaning:
+<class 'pandas.core.series.Series'>
+RangeIndex: 136 entries, 0 to 135
+Series name: None
+Non-Null Count  Dtype 
+--------------  ----- 
+136 non-null    object
+dtypes: object(1)
+memory usage: 1.2+ KB
+
+
+Merge status counts:
+<class 'pandas.core.series.Series'>
+CategoricalIndex: 3 entries, both to right_only
+Series name: count
+Non-Null Count  Dtype
+--------------  -----
+3 non-null      int64
+dtypes: int64(1)
+memory usage: 159.0 bytes
+

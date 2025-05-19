@@ -8,11 +8,11 @@ Created on Wed Mar 12 16:31:03 2025
 
 
 import pandas as pd
-fh = open("nat_grid_stats/output_text.txt", "w")
+fh = open("output_text.txt", "w")
 
-OH = pd.read_csv('nat_grid_stats/input_data/OH.csv', dtype=str, sep=';')
-UG = pd.read_csv('nat_grid_stats/input_data/UG.csv', dtype=str, sep=';')
-names = pd.read_csv('nat_grid_stats/output/std_column_names.csv')
+OH = pd.read_csv('input/OH.csv', dtype=str, sep=';')
+UG = pd.read_csv('input/UG.csv', dtype=str, sep=';')
+names = pd.read_csv('output/std_column_names.csv')
 
 #%%
 #changing the column names in OH
@@ -71,8 +71,8 @@ UG_total_amps = UG.groupby(['substation', 'amp_rating_bin'], observed=True)['sum
 OH_summary = pd.DataFrame({'feeders': OH_feeders, 'total_amps': OH_total_amps})
 UG_summary = pd.DataFrame({'feeders': UG_feeders, 'total_amps': UG_total_amps})
 #saving the summary files
-OH_summary.to_csv('nat_grid_stats/output/OH_summary.csv')
-UG_summary.to_csv('nat_grid_stats/output/UG_summary.csv')
+OH_summary.to_csv('output/OH_summary.csv')
+UG_summary.to_csv('output/UG_summary.csv')
 
 OH_grouped = OH.groupby('amp_rating_bin').size().reset_index(name='count')
 UG_grouped = UG.groupby('amp_rating_bin').size().reset_index(name='count')
@@ -87,8 +87,8 @@ print("\n Number of UG feeders by voltage: \n", kV_UG_grouped, file=fh)
 
 #%%
 #saving the standardized csv files
-OH.to_csv('nat_grid_stats/output/OH_std.csv', index=False)
-UG.to_csv('nat_grid_stats/output/UG_std.csv', index=False)
+OH.to_csv('output/OH_std.csv', index=False)
+UG.to_csv('output/UG_std.csv', index=False)
 
 
 fh.close()

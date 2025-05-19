@@ -11,7 +11,7 @@ import pandas as pd
  # --- Converting excel into a csv file for coding purposes ---
 
 # reading an excel file
-df = pd.read_excel('data_from_state_gov/input/nys-substations.xlsx')
+df = pd.read_excel('input/nys-substations.xlsx')
 df.columns = df.columns.str.lower()
 #df = df.fillna(0)
 
@@ -125,7 +125,7 @@ print(nys_sub.loc[401])
 
 #%%
 #saving as a csv file
-nys_sub.to_csv('data_from_state_gov/nys_sub.csv', index=False)
+nys_sub.to_csv('output/nys_sub.csv', index=False)
 
 #%%
 #grouping
@@ -141,7 +141,7 @@ print("Number of substations: ", nys_sub["substation"].nunique())
 
 
 #%%
-nys_feeders.to_csv('data_from_state_gov/output/nys_feeders.csv')
+nys_feeders.to_csv('output/nys_feeders.csv')
 
 
 

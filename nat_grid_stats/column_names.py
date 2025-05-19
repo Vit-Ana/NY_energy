@@ -8,10 +8,10 @@ Created on Wed Mar 12 16:31:03 2025
 
 
 import pandas as pd
-output = 'nat_grid_stats/output/std_column_names.csv'
+output = 'output/std_column_names.csv'
 
-OH = pd.read_csv("nat_grid_stats/input_data/OH.csv", dtype=str, sep=';')
-UG = pd.read_csv('nat_grid_stats/input_data/UG.csv', dtype=str, sep=';')
+OH = pd.read_csv("input/OH.csv", dtype=str, sep=';')
+UG = pd.read_csv('input/UG.csv', dtype=str, sep=';')
 UG = UG.drop(columns=['x', 'y'])
 
 #%%

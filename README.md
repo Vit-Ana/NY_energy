@@ -1,31 +1,31 @@
-### Data
-1.	The "Substations" (Substations.csv) and "National Grid Feeders By Phase" csv files from the National Grid website: https://systemdataportal.nationalgrid.com/NY/ 
-2.	The pdf file "List of Electric Substations feeding Distribution System" from the official New York State website (date: 2013) https://documents.dps.ny.gov/public/Common/ViewDoc.aspx?DocRefId=%7B3F86059C-C872-415C-BA34-BCF6D20A831F%7D 
-3.	Census Data: zip codes, population, city boundaries for Buffalo and Syracuse
+# Evaluating Substation Capacity in the United States
 
-## Working with the substation file obtained from National Grid website
-a.	Data Cleaning
-1.	```sub_coord.py```:  Substations.csv — cleaning the data and saving as coordinates.csv
-2.	```column_names.py```: unifying column names and saving as column_names.csv
-3.	```summary_sub_NYS.py```: saving the underground (UG) and overhead (OH) feeders data files with the standardized names. The files also provides summary for the feeders (number of feeders per substation, total amps, amp bins).
+## 1. Purpose of the Analysis
+This project evaluates the capacity of electric substations using New York and California as case studies. It also estimates the population served by each substation, providing insight into the spatial distribution of electrical infrastructure relative to population density.
 
-b.	Preparing geographical information files
-1.	```geo_feeders.py```: creating geo files with all substations ("grid_shape.gpkg") and a file with feeders carrying 10+ MW of power ("MW10_shape.gpkg").
-2.	```energy_per_pop.py```: creating maps and plots with information about number of people served
-3.	```city_maps.py```: creating maps with substations in and within 2 miles around Syracuse and Buffalo sub_syracuse_map.png and sub_buffalo_map.png
-4.	```pop_per_sub.py```: computing population per substation and kW pep population in Syracuse and Buffalo
+### 2. Data
+#### 1. Substations and National Grid Feeders
+- Files: Substations.csv, National Grid Feeders By Phase.csv
+- Source: National Grid System Data Portal – New York
+- Description: These datasets contain geolocated information about electrical substations and feeder lines across New York State. The data includes attributes such as substation IDs, rated capacity, phase information, and associated geographic coordinates.
 
-## Working with Census Data
-1.	```ny_population.py``` — downloading population data from Census
-2.	```cities_pop_download.py``` — downloading the population data for Buffalo and Syracuse ("syr_pop.csv", "buff_pop.csv")
+#### 2. List of Electric Substations Feeding the Distribution System
+- File: Electric_Substations_List_2013.pdf
+- Source: New York State Department of Public Service (2013)
+- Description: A government-issued document listing substations connected to the distribution system as of 2013. It provides official naming, utility affiliations, and operational context.
 
-## Working with the substation file obtained from NY state government website
-1.	```NYS_sub.py``` converting nys-substations.xlsx to nys_feeders.csv
-2.	```merged coord + feeders.py```: merging the data from National Grid website and NY state government website and saving into sub_shape.csv
-3.	```sub_shape.py```: Saving as a geopackage with substations as a layer containing coordinates of substations (sub_shape.gpkg)
- 
-\
-**The New York State Map with Substations\
-color-coded by the number of feeders\
-(created with QGIS)**
-![New York State Map with Substations]( gov_file_substations.png)
+#### 3. Census and Geographic Data
+- Files: ZIP code shapefiles, population statistics, city boundary shapefiles for Buffalo and Syracuse
+- Source: U.S. Census Bureau and local government GIS portals
+- Description: Used to spatially associate populations and urban areas with substations and feeders. These datasets are essential for calculating service coverage (e.g., estimated people served per substation) and for visualizing energy infrastructure in urban contexts.
+
+### 3. Folder Structure and Workflow
+```nat_grid_stats/```: Initial analysis of New York substations and feeders using data from the National Grid website.
+
+```nat_grid_maps/```: Calculates estimated service coverage and visualizes substations on a map. Run this after completing ```nat_grid_stats/```.
+
+```city_substations/```: Focuses on service coverage for individual cities (Buffalo, Syracuse). Depends on outputs from ```nat_grid_maps/```.
+
+```data_from_state_gov/```: Analyzes historical data from the New York State Department of Public Service (2013) and maps those substations. Depends on outputs from ```nat_grid_stats/```.
+
+```California/```: Evaluates substations in California. To run this analysis, first execute ```pop_data.py``` and ```state_maps.py``` from ```nat_grid_maps/```.

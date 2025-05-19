@@ -102,15 +102,15 @@ geo_df_10.to_file(out_2,layer="substations")
 
 
 #%%
-# Load and dissolve NY State
+# loading and dissolving NY State
 states = gpd.read_file('input/cb_2018_us_state_5m.zip')
 ny_state = states[states['STATEFP'] == '36']
 ny_state = ny_state.dissolve()#.reset_index(drop=True)
 
-# Ensure CRS matches your existing data (EPSG:3857)
+# ensuring CRS matches your existing data (EPSG:3857)
 ny_state = ny_state.to_crs(epsg=3857)
 
-# Save NY State as a new layer in each GeoPackage
+# saving NY State as a new layer in each GeoPackage
 ny_state.to_file(out_1, layer='state')
 ny_state.to_file(out_2, layer='state')
 

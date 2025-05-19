@@ -67,7 +67,7 @@ def analyze_city_substations(city_name, cities_fp, substations_fp, buffer_miles=
 # --- Usage ---
 #calling the function for Syracuse and Buffalo
 cities_fp = 'input/tl_2024_36_place.zip'
-substations_fp = 'input/sub_shape.gpkg'
+substations_fp = 'input/grid_shape.gpkg'
 
 analyze_city_substations('Syracuse', cities_fp, substations_fp)
 analyze_city_substations('Buffalo', cities_fp, substations_fp)

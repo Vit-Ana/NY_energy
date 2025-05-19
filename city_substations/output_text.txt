@@ -1,5 +1,4 @@
 Population per substation Buffalo: 5118.462962962963
-
 Population per substation Syracuse: 6962.428571428572
 
 kW per person in Buffalo: 0.9052165810772186
