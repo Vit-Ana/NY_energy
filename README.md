@@ -29,3 +29,7 @@ This project evaluates the capacity of electric substations using New York and C
 ```data_from_state_gov/```: Analyzes historical data from the New York State Department of Public Service (2013) and maps those substations. Depends on outputs from ```nat_grid_stats/```.
 
 ```California/```: Evaluates substations in California. To run this analysis, first execute ```pop_data.py``` and ```state_maps.py``` from ```nat_grid_maps/```.
+
+**The New York State Map with Substations**\
+color-coded by number of feeders (created with QGIS)
+![New York State Map with Substations]( gov_file_substations.png)
