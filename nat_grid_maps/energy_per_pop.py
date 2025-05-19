@@ -10,6 +10,7 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import os
+import seaborn as sns
 
 # setting plot resolution
 plt.rcParams['figure.dpi'] = 300
@@ -113,9 +114,8 @@ plt.xlabel('Rated MW')
 plt.ylabel('People Served')
 plt.grid(True)
 plt.tight_layout()
-plt.show()
-fig.savefig('output/pop_per_zip_scatter.png')
-
+plt.savefig('output/pop_per_zip_scatter.png')
+#plt.show()
 
 #%%
 # creating a scatter plot population vs. number of substations per ZIP code
@@ -130,12 +130,16 @@ ax.scatter(
 )
 ax.set_xlabel('Population per ZIP code')
 ax.set_ylabel('Number of Substations')
-ax.set_title('Population vs. Number of Substations per ZIP code')
+ax.set_title('Population vs. Number of Substations per ZIP code (# subs > 0)')
 ax.grid(True)
-plt.tight_layout()
-plt.savefig('output/sub_per_pop_scatter.png')
-plt.show()
+fig.tight_layout()
+fig.savefig('output/sub_per_pop_scatter.png')
+#plt.show()
 
+fig,ax = plt.subplots()
+sns.boxenplot(data=zip_with_subs,y='pop',x='substations_in_zip',showfliers=False,ax=ax)
+fig.tight_layout()
+fig.savefig('output/sub_per_pop_boxen.png')
 
 #%%
 # creating a scatter plot population vs. number of substations per ZIP code with 
@@ -155,7 +159,7 @@ plt.ylabel('Number of Substations')
 plt.title('Substations vs. Population by ZIP Code')
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+#plt.show()
 
 
 
